@@ -1,0 +1,134 @@
+$mainColor: #00ae4a;
+
+.orders {
+    float: right;
+    width: 83%;
+    margin-top: 100px;
+    background-color: #f3f4f3;
+
+    .tableOrders {
+        border-collapse: collapse;
+        box-shadow: 1px 1px 10px gray;
+        background-color: white;
+        border-radius: 15px;
+        margin: 40px 0px 20px 40px;
+
+        thead {
+            .tableName {
+                background-color: $mainColor;
+
+                td {
+                    padding: 10px 20px;
+                    font-size: 19px;
+                    font-weight: bold;
+                    color: white;
+                    border-bottom-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                }
+            }
+            .ordersAmount {
+                td {
+                    color: red;
+                    font-weight: bold;
+                    font-size: 16px;
+                    padding: 15px 10px 20px 20px;
+                }
+            }
+
+            .emptyRow {
+                span {
+                    color: white;
+                    visibility: hidden;
+                }
+            }
+
+            .tableTitle {
+                border-collapse: collapse;
+                font-size: 17px;
+                font-weight: bold;
+
+                td {
+                    background-color: #eaffec;
+                    padding: 7px 40px;
+                    color: $mainColor;
+                    text-align: center;
+                }
+            }
+        }
+
+        tbody {
+            .orderItem {
+                &:hover {
+                    background-color: #eaffec;
+                }
+                td {
+                    padding: 20px 0px 20px 0px;
+                    padding-left: 0px;
+                    text-align: center;
+                }
+
+                .itemName {
+                    font-weight: bold;
+                    color: orange;
+                }
+
+                .itemState {
+                    span {
+                        color: #ff6a00;
+                        background-color: #ffd6b9;
+                        font-weight: bold;
+                        border-radius: 10px;
+                        padding: 5px 10px;
+                        font-size: 14px;
+                    }
+                }
+
+                .catagoryButton {
+                    display: flex;
+                    padding: 15px 15px 15px 15px;
+
+                    button {
+                        width: 70px;
+                        font-size: 16px;
+                        padding: 7px 7px 6px 7px;
+                        margin: 0px 5px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        outline: none;
+                        border-radius: 5px;
+                        border: 0px solid black;
+                        font-family: Cambria;
+                        font-weight: bold;
+
+                        .buttonIcon {
+                            margin-right: 7px;
+                        }
+                    }
+
+                    button:hover {
+                        cursor: pointer;
+                        .buttonIcon {
+                            width: 70px;
+                        }
+                        .buttonLabel {
+                            display: none;
+                            visibility: hidden;
+                        }
+                    }
+
+                    .buttonEdit {
+                        color: white;
+                        background-color: #0179cf;
+                    }
+
+                    .buttonDelete {
+                        color: white;
+                        background-color: #fb1307;
+                    }
+                }
+            }
+        }
+    }
+}
