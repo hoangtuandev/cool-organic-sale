@@ -37,7 +37,17 @@ const Product = {
 
     getProductsSimilar: (req, callback) => {
         return db.query(`SELECT * FROM sanpham WHERE sp_maloai='${req.body.catagory}' LIMIT 5`, callback)
-    }
+    },
+
+    getEmptyProducts: (req, callback) => {
+        return db.query('SELECT * FROM sanpham WHERE sp_tonkho=0', callback)
+    },
+
+    getTopProductsSaled: (req, callback) => {
+        return db.query('SELECT *, SUM(CTDH.ctdh_soluong) AS totalAmount FROM sanpham SP JOIN chitietdonhang CTDH ON SP.sp_id = CTDH.ctdh_masanpham GROUP BY SP.sp_id ORDER BY totalAmount DESC LIMIT 5', callback)
+    },
+
+
 }
 
 module.exports = Product;

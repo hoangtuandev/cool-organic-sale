@@ -9,6 +9,7 @@ import Catagory from './components/Catagory/Catagory';
 import Orders from './components/Orders/Orders'
 import Accounts from './components/Accounts/Accounts';
 import Login from './components/Login/Login';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
                     <>
                         <Sidebar cookies={cookies} > </Sidebar>
                         <Menu handleLogout={handleLogout} ></Menu>
-                        <Products />
+                        <Dashboard />
                     </>} />
                 <Route path="/products" element={
                     <>

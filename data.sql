@@ -26,3 +26,20 @@ INSERT INTO giohang VALUES("GH000004", "0987654321", "SP00540604", "500g", 50000
 INSERT INTO khuyenmai VALUES('DEAL20', '20%', 'Giảm 20% cho đơn từ 150.000đ', 0.2, 30000, 150000, '2022-02-15', '2022-03-15');
 INSERT INTO khuyenmai VALUES('SALE30K', '30K', 'Giảm 30.000đ cho đơn từ 100.000đ', 30000, null, 100000, '2022-02-15', '2022-03-15');
 INSERT INTO khuyenmai VALUES('OFFSALE50', '50%', 'Giảm 50% cho đơn từ 400.000đ', 0.5, 60000, 400000, '2022-02-15', '2022-03-15');
+
+INSERT INTO trangthaidonhang VALUES('CHOXACNHAN', 'Chờ xác nhận');
+INSERT INTO trangthaidonhang VALUES('DANHANDON', 'Đã nhận đơn');
+INSERT INTO trangthaidonhang VALUES('DANGGIAO', 'Đang giao');
+INSERT INTO trangthaidonhang VALUES('THANHCONG', 'Thành công');
+
+INSERT INTO donhang  VALUES ('DH0001', '0123456789', '2022-02-22 11:48:32', 'CHOXACNHAN', 'C166D hẻm 15, phường Xuân Khánh, quận Ninh Kiều, Cần Thơ', '0123456789', 'offline', 500500);
+
+INSERT INTO donhang  VALUES ('DH0002', '0987654321', '2022-02-22 11:48:32', 'DANHANDON', 'C166D hẻm 15, phường Xuân Khánh, quận Ninh Kiều, Cần Thơ', '0998877665', 'online', 450000);
+
+INSERT INTO donhang  VALUES ('DH0003', '0707730850', '2022-02-22 11:48:32', 'DANGGIAO', 'C166D hẻm 15, phường Xuân Khánh, quận Ninh Kiều, Cần Thơ', '0122334455', 'online', 123500);
+
+INSERT INTO chitietdonhang VALUES ('CTDH0001', 'DH0001', 'SP00237105', '2', '500g', 'dao.jpg', '25500');
+INSERT INTO chitietdonhang VALUES ('CTDH0002', 'DH0001', 'SP00345343', '1', '1kg', 'dao.jpg', '355000');
+INSERT INTO chitietdonhang VALUES ('CTDH0003', 'DH0002', 'SP00362741', '3', '500g', 'dao.jpg', '45000');
+INSERT INTO chitietdonhang VALUES ('CTDH0004', 'DH0003', 'SP00401432', '2', '500g', 'dao.jpg', '105000');
+INSERT INTO chitietdonhang VALUES ('CTDH0005', 'DH0003', 'SP00424009', '1', '1kg', 'dao.jpg', '26000');

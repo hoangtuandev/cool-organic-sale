@@ -107,5 +107,22 @@ router.post('/products/getLimitFour', (req, res) => {
     })
 })
 
+router.get('/products/emptyProducts', (req, res) => {
+    Product.getEmptyProducts(req, (err, result) => {
+        if (err)
+            console.log(err)
+        else
+            res.send(result)
+    })
+})
+
+router.get('/products/topProductsSaled', (req, res) => {
+    Product.getTopProductsSaled(req, (err, result) => {
+        if (err)
+            console.log(err)
+        else
+            res.send(result)
+    })
+})
 
 module.exports = router;

@@ -9,10 +9,10 @@ function OrdersHeader(props) {
             <tr className={`${styles.tableTitle}`}>
                 <td>Mã đơn hàng</td>
                 <td>Khách hàng</td>
-                <td>Sản phẩm</td>
                 <td>Tổng tiền</td>
                 <td>Thời gian</td>
                 <td>Trạng thái</td>
+                <td>Cập nhật</td>
             </tr>
             <tr>
                 <td className={`${styles.emptyRow}`}><span>Empty</span></td>

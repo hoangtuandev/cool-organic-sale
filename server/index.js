@@ -7,12 +7,15 @@ const routesAccountClient = require('./routes/AccountClient')
 const routesClient = require('./routes/Client')
 const routesCartShopping = require('./routes/CartShopping')
 const routesAccountAdmin = require('./routes/AccountAdmin')
+const routesOrder = require('./routes/Orders')
+const routesDetailOrder = require('./routes/DetailOrder')
 
 const db = require('./configs/database')
 
 app.use(cors())
 app.use(express.json())
-app.use(routesCatagory, routesProduct, routesAccountClient, routesClient, routesCartShopping, routesAccountAdmin)
+app.use(routesCatagory, routesProduct, routesAccountClient, routesClient, routesCartShopping, routesAccountAdmin, routesOrder, routesDetailOrder)
+
 
 // app.get('/products', (req, res) => {
 //     db.query("SELECT * FROM sanpham", (err, result) => {
@@ -35,6 +38,13 @@ app.use(routesCatagory, routesProduct, routesAccountClient, routesClient, routes
 //     })
 // })
 
+// app.get('/orders/allOrder', (req, res) => {
+//     db.query('SELECT * FROM donhang', (err, result) => {
+//         if (err) console.log(err)
+//         else res.send(result)
+//     })
+// })
+
 // app.post('/login/user', (req, res) => {
 //     db.query(`SELECT * FROM taikhoankhachhang WHERE tkkh_sodienthoai='${req.body.phone}'`, (err, result) => {
 //         if (err) { console.log(err) }
@@ -49,8 +59,8 @@ app.use(routesCatagory, routesProduct, routesAccountClient, routesClient, routes
 //     })
 // })
 
-app.post('/discounts/getDiscountsByPrice', (req, res) => {
-    db.query(`SELECT * FROM khuyenmai WHERE kmai_dieukien<='${req.body.price}'`, (err, result) => {
+app.post('/discounts/getAllDiscounts', (req, res) => {
+    db.query(`SELECT * FROM khuyenmai ORDER BY kmai_dieukien ASC `, (err, result) => {
         if (err) { console.log(err) }
         else { res.send(result) }
     })
@@ -62,6 +72,7 @@ app.post('/discounts/getDiscountsByPrice', (req, res) => {
 //         else { res.send(result) }
 //     })
 // })
+
 
 // app.post('/getAccountAdminByLogin', (req, res) => {
 //     db.query(`SELECT * FROM taikhoanquantri WHERE tkqt_tendangnhap='${req.body.username}'`, (err, result) => {
@@ -83,6 +94,22 @@ app.post('/discounts/getDiscountsByPrice', (req, res) => {
 //         if (err) { console.log(err) }
 //         else { res.send(result) }
 //     })
+// })
+
+// app.post('/orders/addOrder', (req, res) => {
+//     db.query('INSERT INTO donhang(dh_id, dh_taikhoan, dh_ngaydathang, dh_trangthai, dh_diachi, dh_sodienthoai, dh_hinhthucthanhtoan, dh_thanhtoan) VALUES(?, ?, ?, ?, ?, ?, ?, ?)',
+//         [req.body.idOrder, req.body.client, req.body.dateTime, 'Chờ xác nhận', req.body.address, req.body.phone, req.body.typePayment, req.body.total], (err, result) => {
+//             if (err) console.log(err)
+//             else res.send(result)
+//         })
+// })
+
+// app.post('/detailOrder/addDetailOrder', (req, res) => {
+//     db.query('INSERT INTO chitietdonhang(ctdh_id, ctdh_madonhang, ctdh_masanpham, ctdh_soluong, ctdh_donvitinh, ctdh_hinhanh, ctdh_tongtien) VALUES(?, ?, ?, ?, ?, ?, ?)',
+//         [req.body.id, req.body.order, req.body.product, req.body.amount, req.body.unit, req.body.image, req.body.price], (err, result) => {
+//             if (err) console.log(err)
+//             else res.send(result)
+//         })
 // })
 
 // app.post('/register/addClient', (req, res) => {

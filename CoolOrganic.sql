@@ -17,7 +17,8 @@ CREATE TABLE sanpham (
 CREATE TABLE taikhoankhachhang (
      tkkh_sodienthoai VARCHAR(15) NOT NULL PRIMARY KEY,
      tkkh_matkhau VARCHAR(30) NOT NULL, 
-     tkkh_hoten VARCHAR(30) NOT NULL
+     tkkh_hoten VARCHAR(30) NOT NULL,
+     tkkh_hinhanh VARCHAR(200)
 )
 
 CREATE TABLE nhanvien (
@@ -82,4 +83,30 @@ CREATE TABLE khuyenmai (
      kmai_dieukien FLOAT NOT NULL,
      kmai_ngaybatdau DATE NOT NULL,
      kmai_ngayketthuc DATE NOT NULL
+)
+
+CREATE TABLE trangthaidonhang (
+     ttdh_id VARCHAR(15) NOT NULL PRIMARY KEY,
+     ttdh_trangthai VARCHAR(30) NOT NULL
+)
+
+CREATE TABLE donhang (
+     dh_id VARCHAR(20) NOT NULL PRIMARY KEY,
+     dh_taikhoan VARCHAR(15) NOT NULL REFERENCES taikhoankhachhang(tkkh_sodienthoai),
+     dh_ngaydathang DATETIME NOT NULL,
+     dh_trangthai VARCHAR(15) NOT NULL REFERENCES trangthaidonhang(ttdh_trangthai),
+     dh_diachi VARCHAR(300) NOT NULL,
+     dh_sodienthoai VARCHAR(15) NOT NULL,
+     dh_hinhthucthanhtoan VARCHAR(15) NOT NULL,
+     dh_thanhtoan FLOAT NOT NULL
+)
+
+CREATE TABLE chitietdonhang (
+     ctdh_id VARCHAR(30) NOT NULL PRIMARY KEY,
+     ctdh_madonhang VARCHAR(20) NOT NULL REFERENCES donhang(dh_id),
+     ctdh_masanpham VARCHAR(15) NOT NULL REFERENCES sanpham(sp_id),
+     ctdh_soluong INT NOT NULL,
+     ctdh_donvitinh VARCHAR(10) NOT NULL,
+     ctdh_hinhanh VARCHAR(200),
+     ctdh_tongtien FLOAT NOT NULL
 )

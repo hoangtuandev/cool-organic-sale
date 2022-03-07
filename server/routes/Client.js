@@ -13,4 +13,18 @@ router.post('/register/addClient', (req, res) => {
     })
 })
 
+router.get('/client/allClient', (req, res) => {
+    Client.getAllClient(req, (err, result) => {
+        if (err) console.log(err)
+        else res.send(result)
+    })
+})
+
+router.get('/client/topClientPurchase', (req, res) => {
+    Client.getTopClientPurchase(req, (err, result) => {
+        if (err) console.log(err)
+        else res.send(result)
+    })
+})
+
 module.exports = router;

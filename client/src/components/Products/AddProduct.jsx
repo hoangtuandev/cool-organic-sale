@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import styles from './Products.module.scss'
 import FormAddProduct from './FormAddProduct';
+import { FaPlus } from "react-icons/fa";
 
 function AddProduct(props) {
     const { getAllProducts } = props
@@ -16,7 +17,7 @@ function AddProduct(props) {
                 className={`${styles.buttonAdd}`}
                 onClick={handleShowFormAddProduct}
             >
-                THÊM SẢN PHẨM
+                <span><FaPlus /></span> THÊM SẢN PHẨM
             </button>
 
             <div className={`${styles.addFromProduct}`}>
